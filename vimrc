@@ -95,6 +95,7 @@ com VR :vertical resize 80
 
 " iabbrevs
 iabbrev ARB ActiveRecord::Base
+iabbrev uts Unit tested: self \n Code reviewed: 
 
 "nmap <C-T> /^ *def</C-T>  
 "nmap <D-T> :e **/</D-T>

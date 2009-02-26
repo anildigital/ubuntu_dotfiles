@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+
+# j.sh
+source ~/code/ubuntu_dotfiles/j.sh
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
@@ -119,4 +123,33 @@ fi
 function pless {
   pygmentize $1 | less -r
 }
+
+
+complete -C ~/bin/rake-complete.rb -o default rake
+
+
+export EDITOR='emacsclient -c'
+
+function complete_cheat {
+  COMPREPLY=()
+  if [ $COMP_CWORD = 1 ]; then
+    sheets=`cheat sheets | grep '^  '`
+    COMPREPLY=(`compgen -W "$sheets" -- $2`)
+  fi
+}
+complete -F complete_cheat cheat
+
+
+# http://henrik.nyh.se/2008/12/git-dirty-prompt
+# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+# username@Machine ~/dev/dir[master]$ # clean working directory
+# username@Machine ~/dev/dir[master*]$ # dirty working directory
+ 
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+export PS1='\u@\h \w $(parse_git_branch)$ '
 
