@@ -89,30 +89,19 @@ if [ -f ~/.bash_profile ]; then
 fi
 
 PATH=$PATH:$HOME/bin:$PATH
-PATH=$PATH:$HOME/rubymine435/bin:$PATH
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME="/usr/lib/jvm/java-6-sun/"
 
-#ec2 related settings
-export EC2_HOME=$HOME/ec2-api-tools
-export PATH=$PATH:$EC2_HOME/bin
-export EC2_PRIVATE_KEY=~/.ec2/pk-PMN35B5MXIUTGJ6IWACCPS2B5Q4NKBCC.pub
-export EC2_CERT=~/.ec2/cert-PMN35B5MXIUTGJ6IWACCPS2B5Q4NKBCC.pub
-export PATH
 
+# s3
 export AWS_ACCESS_KEY_ID=0QZ75MC87Z8804PSSMR2
 export AWS_SECRET_ACCESS_KEY=raJBR0iylNexzxYNEOxkmJSmmJ2xaI1iS1+UxGbs
-export RUBYLIB=/opt/s3sync
-export SSL_CERT_DIR=/opt/s3sync
+
 export RUBYOPT=rubygems
-alias cockpit='JETS3T_HOME=/opt/jets3t sh /opt/jets3t/bin/cockpit.sh'
-alias s3cmd='. /opt/s3sync/s3_variables ; /opt/s3sync/s3cmd.rb'
-alias s3sync='. /opt/s3sync/s3_variables ; /opt/s3sync/s3sync.rb'
 
 # Open emacs default in network mode
 alias emacs='emacs -nw'
-
 
 #for enabling custom bash aliases
 if [ -f ~/.felixrc ]; then
@@ -127,8 +116,7 @@ function pless {
 
 complete -C ~/bin/rake-complete.rb -o default rake
 
-
-export EDITOR='emacsclient -c'
+export EDITOR='vim'
 
 function complete_cheat {
   COMPREPLY=()
@@ -153,3 +141,9 @@ function parse_git_branch {
 }
 export PS1='\u@\h \w $(parse_git_branch)$ '
 
+
+
+
+# PT specific configuration
+export LOCAL_SSL_ENABLED='true'
+export USE_MEMCACHE='Y'

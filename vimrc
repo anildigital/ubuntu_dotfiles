@@ -1,5 +1,3 @@
-syntax on
-colorscheme github
 set foldmethod=syntax
 set foldlevelstart=1
 set foldnestmax=5

@@ -1,0 +1,20 @@
+[github]
+	user = anildigital
+	token = 903fb3e4764eebcf02e616d669be1fea
+[user]
+	name = Anil Wadghule
+	email = anildigital@gmail.com
+[color]
+	diff = auto
+[alias]
+  co = checkout
+  ci = commit -v
+  b =  branch
+  ba = branch -a
+  d = diff | mate
+  pl =  pull
+  ps = push
+  s = status
+[apply]
+	whitespace = nowarn
+
