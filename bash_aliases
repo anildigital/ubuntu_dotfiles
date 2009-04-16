@@ -3,7 +3,7 @@ alias update="sudo aptitude update"
 alias install="sudo aptitude install"
 alias upgrade="sudo aptitude safe-upgrade"
 alias remove="sudo aptitude remove"
-alias felix="cd /home/anil/ms/svn/felix/trunk/events"
+source ~/.work_aliases
 alias mong="felix && thin start"
 alias svnr="svn status -uv 2>/dev/null | egrep '^([^\? ]|       \*)'"
 alias svnc="svn status | grep '^C'"
@@ -24,6 +24,11 @@ alias this="felix && thin start"
 alias ichr="ssh anil@icanhasruby.com"
 alias die="sudo killall"
 alias conns='sudo lsof -i'
+alias rb='railsbench'
 alias editaliases='cd ~ && vim ~/.bash_aliases'
 alias remove_tmp="rm -rf \`find . -name *.tmp\`"
-source ~/.work_aliases
+alias tun="rtunnel_client -c icanhasruby.com -f 4000 -t localhost:3000"
+alias send_emails="rake utils:send_emails SKIP_SERVER_INIT=Y"
+alias daily_task="rake utils:daily_task SKIP_SERVER_INIT=Y"
+alias hourly_task="rake utils:hourly_task SKIP_SERVER_INIT=Y"
+

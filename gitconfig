@@ -15,6 +15,3 @@
   pl =  pull
   ps = push
   s = status
-[apply]
-	whitespace = nowarn
-
