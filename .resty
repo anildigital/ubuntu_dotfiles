@@ -1,0 +1,54 @@
+function resty() {
+  local host=`cat ${HOME}/.restyrc 2>/dev/null`
+  local method="$1"; shift
+  local uri="$1"; shift;
+  local acpt="Accept: application/json";
+  local data
+  local res
+
+  uri="${host//\*/$uri}"
+
+  case "$method" in
+    GET|DELETE)
+      res=$(curl -s -L -f -H "$accp" -X $method "$@" "$uri")
+      ret=$?
+      [ "$ret" != "0" ] && resty $ret
+      echo "$res"
+      return $ret
+      ;;
+    POST|PUT)
+      data="$1"; shift
+      res=$(curl -s -L -f -H "$accp" -X $method --data-binary "$data" "$@" \
+            "$uri")
+      ret=$?
+      [ "$ret" != "0" ] && resty $ret
+      return $ret
+      ;;
+    http://*|https://*)
+      echo "$method" |grep -q '\*' || method="${method}*"
+      echo "$method" > ${HOME}/.restyrc
+      ;;
+    [0-9]*)
+      echo "resty: curl returned error $method" 1>&2
+      ;;
+    *)
+      cat ${HOME}/.restyrc 2>/dev/null
+      ;;
+  esac
+}
+
+function GET() {
+  resty GET "$@"
+}
+
+function POST() {
+  resty POST "$@"
+}
+
+function PUT() {
+  resty PUT "$@"
+}
+
+function DELETE() {
+  resty DELETE "$@"
+}

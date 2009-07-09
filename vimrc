@@ -143,4 +143,3 @@ autocmd BufReadPost *
 " colorz
 "hi Comment	term=bold		ctermfg=DarkCyan		guifg=#80a0ff
 hi Comment	ctermfg=DarkMagenta
-

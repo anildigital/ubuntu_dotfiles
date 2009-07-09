@@ -8,6 +8,7 @@
 
 # j.sh
 source ~/code/ubuntu_dotfiles/j.sh
+source ~/code/ubuntu_dotfiles/.resty
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
@@ -93,7 +94,6 @@ PATH=$PATH:$HOME/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME="/usr/lib/jvm/java-6-sun/"
 
-
 # s3
 export AWS_ACCESS_KEY_ID=0QZ75MC87Z8804PSSMR2
 export AWS_SECRET_ACCESS_KEY=raJBR0iylNexzxYNEOxkmJSmmJ2xaI1iS1+UxGbs
@@ -115,6 +115,29 @@ function pless {
 
 
 complete -C ~/bin/rake-complete.rb -o default rake
+
+
+# Bash snippet to open new shells in most recently visited dir.
+# Useful if you want to open a new terminal tab at the present 
+# tab's location.
+#
+# Put this in your .bashrc or whatever.
+
+pathed_cd () {
+    if [ "$1" == "" ]; then
+        cd
+    else
+        cd "$1"
+    fi
+    pwd > ~/.cdpath
+}
+alias cd="pathed_cd"
+
+if [ -f ~/.cdpath ]; then
+  cd $(cat ~/.cdpath)
+fi
+
+
 
 export EDITOR='vim'
 
@@ -143,7 +166,19 @@ export PS1='\u@\h \w $(parse_git_branch)$ '
 
 
 
-
 # PT specific configuration
 export LOCAL_SSL_ENABLED='true'
 export USE_MEMCACHE='Y'
+export RAILS_PLATFORM='Y'
+export LD_LIBRARY_PATH=/usr/local/lib
+
+
+
+
+
+# -- start rip config -- #
+RIPDIR=/home/anil/.rip
+RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
+PATH="$PATH:$RIPDIR/active/bin"
+export RIPDIR RUBYLIB PATH
+# -- end rip config -- #
