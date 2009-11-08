@@ -1,7 +1,7 @@
-set foldmethod=syntax
-set foldlevelstart=1
-set foldnestmax=5
-let javaScript_fold=1
+"set foldmethod=syntax
+"set foldlevelstart=1
+"set foldnestmax=5
+"let javaScript_fold=1
 set textwidth=0
 "set foldclose=all
 

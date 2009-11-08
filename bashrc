@@ -169,10 +169,9 @@ export PS1='\u@\h \w $(parse_git_branch)$ '
 # PT specific configuration
 export LOCAL_SSL_ENABLED='true'
 export USE_MEMCACHE='Y'
+export NEW_SIGNUP_FLOW='Y'
 export RAILS_PLATFORM='Y'
 export LD_LIBRARY_PATH=/usr/local/lib
-
-
 
 
 
@@ -182,3 +181,24 @@ RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
 PATH="$PATH:$RIPDIR/active/bin"
 export RIPDIR RUBYLIB PATH
 # -- end rip config -- #
+
+
+# put this in ~/.bash_profile or whatever
+ruby_or_irb () {
+  if [ "$1" == "" ]; then
+    irb
+  else
+    ruby "$@"
+  fi
+}
+alias ruby="ruby_or_irb"
+
+
+
+
+ 
+# http://ozmm.org/posts/local_gems.html
+alias gemi='gem install --no-rdoc --no-ri -y'
+export GEM_HOME="$HOME/.gems"
+export GEM_PATH="$GEM_HOME"
+export PATH="$HOME/.gems/bin:$PATH"
