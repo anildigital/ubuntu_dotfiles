@@ -169,9 +169,10 @@ export PS1='\u@\h \w $(parse_git_branch)$ '
 # PT specific configuration
 export LOCAL_SSL_ENABLED='true'
 export USE_MEMCACHE='Y'
+export ENABLE_RACK_BUG='Y'
 export NEW_SIGNUP_FLOW='Y'
 export RAILS_PLATFORM='Y'
-export LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH="/usr/local/lib"
 
 
 
@@ -202,3 +203,5 @@ alias gemi='gem install --no-rdoc --no-ri -y'
 export GEM_HOME="$HOME/.gems"
 export GEM_PATH="$GEM_HOME"
 export PATH="$HOME/.gems/bin:$PATH"
+export PATH="$HOME/code/google_appengine:$PATH"
+export PYTHONPATH="$HOME/code/google_appengine:$PYTHONPATH"
