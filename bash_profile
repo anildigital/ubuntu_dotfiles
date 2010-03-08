@@ -1,15 +1,12 @@
+if [[ -s /home/anil/.rvm/scripts/rvm ]] ; then source /home/anil/.rvm/scripts/rvm ; fi
+
 # j.sh
 source ~/code/ubuntu_dotfiles/j.sh
 source ~/code/ubuntu_dotfiles/.resty
 
+alias gemi='gem install --no-rdoc --no-ri'
 
-# defunkt's tip
-alias gemi='gem install --no-rdoc --no-ri -y'
-export GEM_HOME="$HOME/.gems"
-export GEM_PATH="$GEM_HOME"
-export PATH="$HOME/.gems/bin:$PATH"
-
-
+PATH=$PATH:$HOME/.gem/ruby/1.8/bin:$PATH
 PATH=$PATH:$HOME/bin:$PATH
  
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
@@ -115,14 +112,7 @@ ruby_or_irb () {
 }
 alias ruby="ruby_or_irb"
  
- 
- 
- 
- 
-# http://ozmm.org/posts/local_gems.html
-alias gemi='gem install --no-rdoc --no-ri -y'
-export GEM_HOME="$HOME/.gems"
-export GEM_PATH="$GEM_HOME"
-export PATH="$HOME/.gems/bin:$PATH"
+
 export PATH="$HOME/code/google_appengine:$PATH"
 export PYTHONPATH="$HOME/code/google_appengine:$PYTHONPATH"
+

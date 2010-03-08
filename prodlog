@@ -1,0 +1,6 @@
+#!/bin/sh -e
+# Usage: $ prodlog [LOG]
+#
+# LOG is 'log/production.log' by default
+# Run in RAILS_ROOT
+clear && tail -f -n 0 ${1:-log/production.log}

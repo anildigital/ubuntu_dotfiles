@@ -98,7 +98,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
 if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile
+  . ~/.bash_profile
 fi
