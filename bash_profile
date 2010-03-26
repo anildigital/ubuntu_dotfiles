@@ -8,6 +8,8 @@ alias gemi='gem install --no-rdoc --no-ri'
 
 PATH=$PATH:$HOME/.gem/ruby/1.8/bin:$PATH
 PATH=$PATH:$HOME/bin:$PATH
+PATH=$PATH:$HOME/code/appengine-java-sdk-1.3.1/bin:$PATH
+PATH=$PATH:$HOME/home/anil/code/google_appengine:$PATH
  
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME="/usr/lib/jvm/java-6-sun/"

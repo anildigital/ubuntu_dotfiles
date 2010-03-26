@@ -16,4 +16,4 @@ cp_p()
       }
     }
     END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
-}
+  }
