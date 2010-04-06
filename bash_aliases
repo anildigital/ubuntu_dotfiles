@@ -6,17 +6,17 @@ alias remove="sudo aptitude remove"
 source ~/.work_aliases
 alias svnr="svn status -uv 2>/dev/null | egrep '^([^\? ]|       \*)'"
 alias svnc="svn status | grep '^C'"
-alias ci="svn commit" 
 alias diff="colordiff" 
 alias mysqlb="sudo mysql-query-browser &"
 alias mysqlstart="sudo /etc/init.d/mysql start"
 alias firefoxd="firefox -P developer -NO-REMOTE &"
 alias gvim="gvim . &"
-alias sup="svn update"
+
 alias rlc="juno && rake log:clear RAILS_ENV=production"
 alias lessd="juno && less -i -n -R log/development.log"
 alias lessp="juno && less -i -n -R log/production.log"
 alias taild="juno && tail -f log/development.log"
+
 alias less="less -R"
 alias rm="rm -i"
 alias c="cheat"
@@ -50,6 +50,13 @@ alias sqlyog="wine '/home/anil/.wine/dosdevices/c:/Program Files/SQLyog Communit
 alias k="killall -9"
 alias postbin="cd /home/anil/code/python/ && dev_appserver.py postbin/ --port 8085"
 alias killchrome="sudo killall -9 chrome"
+alias gemi='gem install --no-rdoc --no-ri GEM_HOME='
 alias jgem="jruby -S gem"
-alias bash_aliases="source ~/.bash_aliases"
+alias bash_aliases="vi ~/.bash_aliases && source ~/.bash_aliases"
+alias bashrc="vi ~/.bashrc && source ~/.bashrc"
+alias bash_profile="vi ~/.bash_profile && source ~/.bash_profile"
 alias man='gem man -s'
+alias emacs='emacs -nw'
+alias vi='emacs -nw'
+alias vim='emacs -nw'
+alias railscode="cd ~/code/rails/rails"

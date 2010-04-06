@@ -4,36 +4,52 @@ if [[ -s /home/anil/.rvm/scripts/rvm ]] ; then source /home/anil/.rvm/scripts/rv
 source ~/code/ubuntu_dotfiles/j.sh
 source ~/code/ubuntu_dotfiles/.resty
 
-alias gemi='gem install --no-rdoc --no-ri'
+## Set paths
 
 PATH=$PATH:$HOME/.gem/ruby/1.8/bin:$PATH
 PATH=$PATH:$HOME/bin:$PATH
+
+# app engine paths
 PATH=$PATH:$HOME/code/appengine-java-sdk-1.3.1/bin:$PATH
-PATH=$PATH:$HOME/home/anil/code/google_appengine:$PATH
+export PATH="$HOME/code/google_appengine:$PATH"
+export PYTHONPATH="$HOME/code/google_appengine:$PYTHONPATH"
  
+
+# Environment variables
+
+# java
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME="/usr/lib/jvm/java-6-sun/"
- 
-# s3
-export AWS_ACCESS_KEY_ID=0QZ75MC87Z8804PSSMR2
-export AWS_SECRET_ACCESS_KEY=raJBR0iylNexzxYNEOxkmJSmmJ2xaI1iS1+UxGbs
- 
+
+# ruby
 export RUBYOPT=rubygems
- 
-# Open emacs default in network mode
-alias emacs='emacs -nw'
- 
-#for enabling custom bash aliases
-if [ -f ~/.felixrc ]; then
-	    . ~/.felixrc
-fi
- 
+
+# general
+export EDITOR='emacs'
+export LOCAL_SSL_ENABLED='true'
+export LD_LIBRARY_PATH="/usr/local/lib" 
+
+
+## Bash Functions
+
 # http://gist.github.com/23914
 function pless {
   pygmentize $1 | less -r
 }
+# browse cheat in style
+function cheatl {
+  cheat $1 | less -r
+}
+# does ls after cd.
+function cd()
+{
+  builtin cd ${1:-$HOME} && ls
+}
+
+# fast ls
+bind -x '"\C-o"':"ls -lh"
  
- 
+# rake complete
 complete -C ~/bin/rake-complete.rb -o default rake
  
  
@@ -57,10 +73,6 @@ if [ -f ~/.cdpath ]; then
   cd $(cat ~/.cdpath)
 fi
  
- 
- 
-export EDITOR='vim'
- 
 function complete_cheat {
   COMPREPLY=()
   if [ $COMP_CWORD = 1 ]; then
@@ -83,18 +95,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 export PS1='\u@\h \w $(parse_git_branch)$ '
- 
- 
- 
-# PT specific configuration
-export LOCAL_SSL_ENABLED='true'
-export USE_MEMCACHE='Y'
-export ENABLE_RACK_BUG='Y'
-export NEW_SIGNUP_FLOW='Y'
-export RAILS_PLATFORM='Y'
-export LD_LIBRARY_PATH="/usr/local/lib"
- 
- 
+  
  
 # -- start rip config -- #
 RIPDIR=/home/anil/.rip
@@ -113,8 +114,3 @@ ruby_or_irb () {
   fi
 }
 alias ruby="ruby_or_irb"
- 
-
-export PATH="$HOME/code/google_appengine:$PATH"
-export PYTHONPATH="$HOME/code/google_appengine:$PYTHONPATH"
-

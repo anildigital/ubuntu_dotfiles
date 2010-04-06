@@ -6,6 +6,7 @@
 	email = anildigital@gmail.com
 [color]
 	diff = auto
+	ui = true
 [alias]
   co = checkout
   ci = commit -v
@@ -15,3 +16,5 @@
   pl =  pull
   ps = push
   s = status
+[core]
+	editor = emacs
