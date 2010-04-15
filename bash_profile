@@ -6,7 +6,7 @@ source ~/code/ubuntu_dotfiles/.resty
 
 ## Set paths
 
-PATH=$PATH:$HOME/.gem/ruby/1.8/bin:$PATH
+#PATH=$PATH:$HOME/.gem/ruby/1.8/bin:$PATH
 PATH=$PATH:$HOME/bin:$PATH
 
 # app engine paths
@@ -22,7 +22,7 @@ export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export JDK_HOME="/usr/lib/jvm/java-6-sun/"
 
 # ruby
-export RUBYOPT=rubygems
+#export RUBYOPT=rubygems
 
 # general
 export EDITOR='emacs'

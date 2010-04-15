@@ -17,4 +17,4 @@
   ps = push
   s = status
 [core]
-	editor = emacs
+	editor = emacsclient -t
