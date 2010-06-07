@@ -1,5 +1,3 @@
-if [[ -s /home/anil/.rvm/scripts/rvm ]] ; then source /home/anil/.rvm/scripts/rvm ; fi
-
 # j.sh
 source ~/code/ubuntu_dotfiles/j.sh
 source ~/code/ubuntu_dotfiles/.resty
@@ -25,7 +23,7 @@ export JDK_HOME="/usr/lib/jvm/java-6-sun/"
 #export RUBYOPT=rubygems
 
 # general
-export EDITOR='emacs'
+export EDITOR='emacsclient -c'
 export LOCAL_SSL_ENABLED='true'
 export LD_LIBRARY_PATH="/usr/local/lib" 
 
@@ -51,28 +49,7 @@ bind -x '"\C-o"':"ls -lh"
  
 # rake complete
 complete -C ~/bin/rake-complete.rb -o default rake
- 
- 
-# Bash snippet to open new shells in most recently visited dir.
-# Useful if you want to open a new terminal tab at the present 
-# tab's location.
-#
-# Put this in your .bashrc or whatever.
- 
-pathed_cd () {
-    if [ "$1" == "" ]; then
-        cd
-    else
-        cd "$1"
-    fi
-    pwd > ~/.cdpath
-}
-alias cd="pathed_cd"
- 
-if [ -f ~/.cdpath ]; then
-  cd $(cat ~/.cdpath)
-fi
- 
+
 function complete_cheat {
   COMPREPLY=()
   if [ $COMP_CWORD = 1 ]; then
@@ -82,6 +59,7 @@ function complete_cheat {
 }
 complete -F complete_cheat cheat
  
+
  
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
@@ -106,14 +84,28 @@ RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
 PATH="$PATH:$RIPDIR/active/bin"
 export RIPDIR RUBYLIB PATH
 # -- end rip config -- #
+
+
+
  
+if [[ -s /home/anil/.rvm/scripts/rvm ]] ; then source /home/anil/.rvm/scripts/rvm ; fi
  
-# put this in ~/.bash_profile or whatever
-ruby_or_irb () {
-  if [ "$1" == "" ]; then
-    irb
-  else
-    ruby "$@"
-  fi
+# Bash snippet to open new shells in most recently visited dir.
+# Useful if you want to open a new terminal tab at the present 
+# tab's location.
+#
+# Put this in your .bashrc or whatever.
+ 
+pathed_cd () {
+    if [ "$1" == "" ]; then
+        cd
+    else
+        cd "$1"
+    fi
+    pwd > ~/.cdpath
 }
-alias ruby="ruby_or_irb"
+alias cd="pathed_cd"
+ 
+if [ -f ~/.cdpath ]; then
+  cd $(cat ~/.cdpath)
+fi
