@@ -1,6 +1,8 @@
-puts "Welcome, Anil"
+require 'rubygems'
 # Should go in ~/.irbrc or similar
-require 'johnson'
+if RUBY_PLATFORM !~ /java/
+   require 'johnson'
+end
 require 'hpricot'
 require 'benchmark'
 require 'utility_belt'
@@ -21,3 +23,32 @@ if ENV['RAILS_ENV']
     end
   end
 end
+
+
+require "rubygems"
+require "ap"
+
+IRB::Irb.class_eval do
+  def output_value
+    ap @context.last_value, 
+            :multiline => false,
+            :plain  => false,
+            :indent => 2,
+            :color => {
+                :array      => :white,
+                :bignum     => :blue,
+                :class      => :yellow,
+                :date       => :greenish,
+                :falseclass => :red,
+                :fixnum     => :blue,
+                :float      => :blue,
+                :hash       => :gray,
+                :nilclass   => :red,
+                :string     => :yellowish,
+                :symbol     => :cyanish,
+                :time       => :greenish,
+                :trueclass  => :green
+            }
+  end 
+end
+puts "Welcome, Anil. All systems working."
