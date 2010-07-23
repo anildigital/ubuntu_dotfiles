@@ -1,6 +1,6 @@
 # j.sh
-source ~/code/ubuntu_dotfiles/j.sh
-source ~/code/ubuntu_dotfiles/.resty
+source ~/bin/j.sh
+source ~/bin/resty
 
 ## Set paths
 
@@ -45,6 +45,12 @@ function cheatl {
 function cd()
 {
     builtin cd ${1:-$HOME} && ls
+}
+
+
+# http://gist.github.com/486445
+murder () {
+  ps | grep $1 | grep -v grep | awk '{print $1}' | xargs kill -9
 }
 
 # fast ls
@@ -115,3 +121,6 @@ alias cd="pathed_cd"
 if [ -f ~/.cdpath ]; then
     cd $(cat ~/.cdpath)
 fi
+
+
+
