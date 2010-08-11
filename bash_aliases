@@ -64,3 +64,4 @@ alias ports='sudo lsof -iTCP -sTCP:LISTEN -P'
 alias ip="/sbin/ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '{ print $2 }' | awk -F: '{ print $2 }'"
 alias devrails='ruby ~/code/rails/rails/bin/rails'
 alias devrails2='ruby ~/code/rails/rails/railties/bin/rails'
+alias killserver="sudo lsof -iTCP -sTCP:LISTEN -P | grep 'TCP \*\:3000' | awk '{ print \$2 }' | xargs kill -9"
