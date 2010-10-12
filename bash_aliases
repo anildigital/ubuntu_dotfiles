@@ -65,3 +65,7 @@ alias ip="/sbin/ifconfig | grep 'inet addr' | grep -v '127.0.0.1' | awk '{ print
 alias devrails='ruby ~/code/rails/rails/bin/rails'
 alias devrails2='ruby ~/code/rails/rails/railties/bin/rails'
 alias killserver="sudo lsof -iTCP -sTCP:LISTEN -P | grep 'TCP \*\:3000' | awk '{ print \$2 }' | xargs kill -9"
+alias sharegit='git daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack'
+alias socks="ssh -N -D 4000 anil@icanhasruby.com"
+alias emacs="nohup /opt/local/bin/emacs & > /dev/null"
+alias rubymine="nohup /home/anil/Software/rubymine93.202/bin/rubymine.sh &"
